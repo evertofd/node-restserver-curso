@@ -31,17 +31,6 @@ app.post('/usuario', function(req, res) {
         });
     });
 
-    if (body.nombre === undefined) {
-        res.status(400).json({
-            ok: false,
-            mensaje: 'El nombe es necesario'
-        });
-    } else {
-        res.json({
-            persona: body
-        });
-    }
-
 });
 
 app.put('/usuario/:id', function(req, res) {
