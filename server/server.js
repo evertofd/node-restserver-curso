@@ -18,12 +18,13 @@ app.use(require('./routes/usuario'));
 
 //Conexion a mondo Db
 
-mongoose.connect('mongodb://localhost:27017/cafe', (err, res) => {
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true },
+    (err, res) => {
 
-    if (err) throw err;
+        if (err) throw err;
 
-    console.log('base de datos ONLINE');
-});
+        console.log('base de datos ONLINE');
+    });
 
 app.listen(process.env.PORT, () => {
     console.log('Escuchando el puerto', process.env.PORT);
